@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMW Frankfurt</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0d0d0d;
+  color: white;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 30px 20px;
+  background: black;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+header img {
+  width: 80px;   /* control size */
+  height: auto;  /* keeps proportions */
+  display: block;
+  margin: 0 auto 10px; /* center it */
+}
+
+/* Promo Section */
+.promo {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #111, #1f1f1f);
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.promo img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.promo-text h2 {
+  color: #00c3ff;
+}
+
+/* Cars */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.car {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.car:hover {
+  transform: scale(1.03);
+}
+
+.car img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.price {
+  color: #00c3ff;
+  font-weight: bold;
+}
+
+/* Founder Section */
+.founder {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.founder img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #00c3ff;
+  object-fit: cover;
+}
+
+.founder h3 {
+  margin-top: 15px;
+}
+
+/* Contact Section */
+.contact {
+  text-align: center;
+  padding: 30px 20px;
+  background: #111;
+}
+
+.contact p {
+  margin: 5px 0;
+}
+
+.contact a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 20px;
+  background: #0088cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+
+/* Responsive */
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .promo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://images.seeklogo.com/logo-png/2/2/bmw-color-logo-png_seeklogo-20654.png" class="logo" alt="BMW Frankfurt Logo">
+  <h1>Sussan klatten Cars Plug</h1>
+  <p>Premium BMW Deals | Direct Sales |  Promo Cars</p>
+</header>
+
+<!-- PROMO -->
+<section class="promo">
+  <img src="https://via.placeholder.com/500x300">
+  <div class="promo-text">
+    <h2>BMW X7 2025</h2>
+    <p>Full Option | Clean Title</p>
+    <p class="price">€38,000</p>
+  </div>
+</section>
+
+<!-- CARS -->
+<section class="container">
+  <div class="car">
+    <img src="https://via.placeholder.com/400x250">
+    <h3>BMW X5 2025</h3>
+    <p>Damage: Rear</p>
+    <p class="price">€18,000</p>
+  </div>
+
+  <div class="car">
+    <img src="https://via.placeholder.com/400x250">
+    <h3>BMW 3 Series 2026</h3>
+    <p>Damage: Front</p>
+    <p class="price">€12,500</p>
+  </div>
+
+  <div class="car">
+    <img src="https://via.placeholder.com/400x250">
+    <h3>BMW X6 2025</h3>
+    <p>Clean Title</p>
+    <p class="price">€25,000</p>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder">
+  <img src="https://tse4.mm.bing.net/th/id/OIP.yORAm-PmkL2LW5GMHYYx7AHaEL?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Founder">
+  <h3>Sussan klatten</h3>
+  <p>Founder & Sales Director</p>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact Agent</h2>
+  <p>Email: example@email.com</p>
+  <p>Telegram: @bmw_agent</p>
+
+  <a href="https://t.me/bmw_agent" target="_blank">
+    Message on Telegram
+  </a>
+</section>
+
+</body>
+</html>
