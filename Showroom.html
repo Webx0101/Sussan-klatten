@@ -6,11 +6,21 @@
 <title>BMW Frankfurt</title>
 
 <style>
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #0d0d0d;
   color: white;
+
+  background: radial-gradient(circle at top left, rgba(0,195,255,0.15), transparent 40%),
+              radial-gradient(circle at bottom right, rgba(0,195,255,0.1), transparent 40%),
+              #0d0d0d;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Header */
@@ -26,13 +36,12 @@ header h1 {
 }
 
 header img {
-  width: 80px;   /* control size */
-  height: auto;  /* keeps proportions */
+  width: 80px;
   display: block;
-  margin: 0 auto 10px; /* center it */
+  margin: 0 auto 10px;
 }
 
-/* Promo Section */
+/* Promo (now clickable) */
 .promo {
   max-width: 1100px;
   margin: 30px auto;
@@ -43,6 +52,14 @@ header img {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.promo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
 .promo img {
@@ -50,11 +67,7 @@ header img {
   border-radius: 10px;
 }
 
-.promo-text h2 {
-  color: #00c3ff;
-}
-
-/* Cars */
+/* Cars Grid */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -64,29 +77,57 @@ header img {
   padding: 20px;
 }
 
+/* Clickable Card */
 .car {
+  display: block;
+  text-decoration: none;
+  color: white;
   background: #1a1a1a;
   border-radius: 10px;
   padding: 15px;
-  text-align: center;
   transition: 0.3s;
 }
 
 .car:hover {
   transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-.car img {
+/* Carousel */
+.carousel {
+  position: relative;
+}
+
+.carousel img {
   width: 100%;
   border-radius: 10px;
+  display: none;
 }
+
+.carousel img.active {
+  display: block;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.prev { left: 5px; }
+.next { right: 5px; }
 
 .price {
   color: #00c3ff;
   font-weight: bold;
 }
 
-/* Founder Section */
+/* Founder */
 .founder {
   text-align: center;
   padding: 40px 20px;
@@ -100,19 +141,11 @@ header img {
   object-fit: cover;
 }
 
-.founder h3 {
-  margin-top: 15px;
-}
-
-/* Contact Section */
+/* Contact */
 .contact {
   text-align: center;
   padding: 30px 20px;
   background: #111;
-}
-
-.contact p {
-  margin: 5px 0;
 }
 
 .contact a {
@@ -124,7 +157,6 @@ header img {
   text-decoration: none;
   border-radius: 6px;
 }
-
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -143,69 +175,238 @@ header img {
   }
 }
 
+/* Testimonials */
+.testimonials {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 20px;
+}
 
+.testimonials h2 {
+  margin-bottom: 20px;
+}
+
+.testimonial {
+  display: none;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.testimonial p {
+  font-style: italic;
+}
+
+.testimonial h4 {
+  margin-top: 10px;
+  color: #00c3ff;
+}
+
+.testimonial-controls {
+  margin-top: 15px;
+}
+
+.testimonial-controls button {
+  background: rgba(0,0,0,0.6);
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  margin: 5px;
+  cursor: pointer;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="https://images.seeklogo.com/logo-png/2/2/bmw-color-logo-png_seeklogo-20654.png" class="logo" alt="BMW Frankfurt Logo">
-  <h1>Sussan klatten Cars Plug</h1>
-  <p>Premium BMW Deals | Direct Sales |  Promo Cars</p>
+  <img src="https://images.seeklogo.com/logo-png/2/2/bmw-color-logo-png_seeklogo-20654.png">
+  <h1>Sussan Klatten Cars Plug</h1>
+  <p>Premium BMW Deals | Direct Sales | Promo Cars</p>
 </header>
 
-<!-- PROMO -->
-<section class="promo">
-  <img src="https://via.placeholder.com/500x300">
-  <div class="promo-text">
-    <h2>BMW X7 2025</h2>
+<!-- PROMO (NOW CLICKABLE) -->
+<a href="https://t.me/bmw_agent?text=Interested%20in%20BMW%20M5%202026" class="promo">
+  <img src="IMG_E1533.JPG">
+  <div>
+    <h2>BMW M5 2026</h2>
     <p>Full Option | Clean Title</p>
-    <p class="price">€38,000</p>
+    <p class="price">ON PROMO</p>
   </div>
-</section>
+</a>
 
 <!-- CARS -->
 <section class="container">
-  <div class="car">
-    <img src="https://via.placeholder.com/400x250">
-    <h3>BMW X5 2025</h3>
-    <p>Damage: Rear</p>
-    <p class="price">€18,000</p>
-  </div>
 
-  <div class="car">
-    <img src="https://via.placeholder.com/400x250">
-    <h3>BMW 3 Series 2026</h3>
-    <p>Damage: Front</p>
-    <p class="price">€12,500</p>
-  </div>
+  <!-- CAR 1 -->
+  <a href="https://t.me/bmw_agent?text=Interested%20in%20BMW%20M5%202025" class="car">
+    <div class="carousel">
+      <img src="BQOD8471.JPG" class="active">
+      <img src="BQOD8471.JPG">
+      <img src="BQOD8471.JPG">
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <h3>BMW M5 2025</h3>
+    <p>No Damage</p>
+    <p class="price">ON PROMO</p>
+  </a>
 
-  <div class="car">
-    <img src="https://via.placeholder.com/400x250">
-    <h3>BMW X6 2025</h3>
-    <p>Clean Title</p>
-    <p class="price">€25,000</p>
-  </div>
+  <!-- CAR 2 -->
+  <a href="https://t.me/bmw_agent?text=Interested%20in%20BMW%20X5%202025" class="car">
+    <div class="carousel">
+      <img src="IMG_E1544.JPG" class="active">
+      <img src="IMG_E1545.JPG">
+      <img src="IMG_E1549.JPG">
+      <img src="IMG_E1548.JPG">
+
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <h3>BMW M4 2026</h3>
+    <p>Rear Damage</p>
+    <p class="price">ON PROMO</p>
+  </a>
+
+  <!-- CAR 3 -->
+  <a href="https://t.me/bmw_agent?text=Interested%20in%20BMW%203%20Series%202026" class="car">
+    <div class="carousel">
+      <img src="IMG_E1517.JPG" class="active">
+      <img src="IMG_E1518.JPG">
+      <img src="IMG_E1520.JPG">
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <h3>BMW M3 2026</h3>
+    <p>Front Damage</p>
+    <p class="price">ON PROMO</p>
+  </a>
+
+
+  <a href="https://t.me/bmw_agent?text=Interested%20in%20BMW%203%20Series%202026" class="car">
+    <div class="carousel">
+      <img src="IMG_E1531.JPG">
+      <img src="IMG_E1528.JPG" class="active">
+      <img src="IMG_E1530.JPG">
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <h3>BMW M2 Series 2026</h3>
+    <p>Front Damage</p>
+    <p class="price">ON PROMO</p>
+  </a>
+
 </section>
 
 <!-- FOUNDER -->
 <section class="founder">
-  <img src="https://tse4.mm.bing.net/th/id/OIP.yORAm-PmkL2LW5GMHYYx7AHaEL?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Founder">
-  <h3>Sussan klatten</h3>
+  <img src="https://tse4.mm.bing.net/th/id/OIP.yORAm-PmkL2LW5GMHYYx7AHaEL">
+  <h3>Sussan Klatten</h3>
   <p>Founder & Sales Director</p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+
+  <h2>What Our Clients Say</h2>
+
+  <div class="testimonial-container">
+
+    <div class="testimonial active">
+      <p>"Very smooth transaction. Car arrived exactly as described."</p>
+      <h4>— James K.</h4>
+    </div>
+
+    <div class="testimonial">
+      <p>"Trusted seller. I received my BMW in perfect condition."</p>
+      <h4>— Ahmed S.</h4>
+    </div>
+
+    <div class="testimonial">
+      <p>"Fast communication and honest service. Highly recommend."</p>
+      <h4>— Maria L.</h4>
+    </div>
+
+    <div class="testimonial">
+      <p>"Best deal I found online. Everything was transparent."</p>
+      <h4>— Daniel R.</h4>
+    </div>
+
+  </div>
+
+  <div class="testimonial-controls">
+    <button id="prevTest">&#10094;</button>
+    <button id="nextTest">&#10095;</button>
+  </div>
+
 </section>
 
 <!-- CONTACT -->
 <section class="contact">
   <h2>Contact Agent</h2>
-  <p>Email: example@email.com</p>
-  <p>Telegram: @bmw_agent</p>
+  <p>Telegram: @bmw_agent01</p>
 
-  <a href="https://t.me/bmw_agent" target="_blank">
+  <a href="https://t.me/bmw_agent01" target="_blank">
     Message on Telegram
   </a>
 </section>
+
+<script>
+document.querySelectorAll(".carousel").forEach(carousel => {
+  let images = carousel.querySelectorAll("img");
+  let index = 0;
+
+  const show = i => {
+    images.forEach(img => img.classList.remove("active"));
+    images[i].classList.add("active");
+  };
+
+  carousel.querySelector(".next").onclick = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    index = (index + 1) % images.length;
+    show(index);
+  };
+
+  carousel.querySelector(".prev").onclick = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    index = (index - 1 + images.length) % images.length;
+    show(index);
+  };
+});
+
+
+let testIndex = 0;
+const testimonials = document.querySelectorAll(".testimonial");
+
+function showTestimonial(i) {
+  testimonials.forEach(t => t.classList.remove("active"));
+  testimonials[i].classList.add("active");
+}
+
+document.getElementById("nextTest").onclick = () => {
+  testIndex = (testIndex + 1) % testimonials.length;
+  showTestimonial(testIndex);
+};
+
+document.getElementById("prevTest").onclick = () => {
+  testIndex = (testIndex - 1 + testimonials.length) % testimonials.length;
+  showTestimonial(testIndex);
+};
+
+/* Auto-slide */
+setInterval(() => {
+  testIndex = (testIndex + 1) % testimonials.length;
+  showTestimonial(testIndex);
+}, 4000);
+</script>
 
 </body>
 </html>
